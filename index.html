@@ -6,10 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenClaw - 您的个人 AI 助手</title>
     <meta name="description" content="运行在其设备上的个人 AI 助手。支持 WhatsApp, Telegram, Slack, Discord 等多渠道接入。本地优先，隐私安全。">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/svg+xml" href="https://openclaw.ai/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="https://openclaw.ai/favicon-32.png">
     <link rel="apple-touch-icon" href="https://openclaw.ai/apple-touch-icon.png">
+    <link rel="canonical" href="https://moltbots.github.io/">
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Peter Steinberger" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="OpenClaw — Personal AI Assistant">
+    <meta property="og:description" content="OpenClaw — The AI that actually does things. Your personal assistant on any platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://openclaw.ai/">
+    <meta property="og:image" content="https://openclaw.ai/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OpenClaw — Personal AI Assistant">
+    <meta name="twitter:description" content="OpenClaw — The AI that actually does things. Your personal assistant on any platform.">
+    <meta name="twitter:image" content="https://openclaw.ai/og-image.png">
+  
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,13 +38,13 @@
                 extend: {
                     colors: {
                         claw: {
-                            DEFAULT: '#FF4500', // Orange Red
+                            DEFAULT: '#FF4500',
                             500: '#FF4500',
                             600: '#CC3700',
                             900: '#4A1400',
                         },
                         cyber: {
-                            DEFAULT: '#00F0FF', // Cyan
+                            DEFAULT: '#00F0FF',
                             dim: 'rgba(0, 240, 255, 0.1)',
                         },
                         dark: {
@@ -41,10 +58,6 @@
                         sans: ['Outfit', 'sans-serif'],
                         display: ['Space Grotesk', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    backgroundImage: {
-                        'grid-pattern': "linear-gradient(to right, #262626 1px, transparent 1px), linear-gradient(to bottom, #262626 1px, transparent 1px)",
-                        'radial-glow': "radial-gradient(circle at center, var(--tw-gradient-stops))",
                     },
                     animation: {
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -63,7 +76,7 @@
                     }
                 }
             }
-        }
+        };
     </script>
     <style>
         body {
@@ -177,7 +190,7 @@
                         class="animate-ping absolute inline-flex h-full w-full rounded-full bg-claw-500 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-claw-500"></span>
                 </span>
-                v2026.1.30 现已发布
+                v2026.1.29 现已发布
             </div>
 
             <h1
@@ -209,7 +222,7 @@
                     <div class="p-4 sm:p-6 font-mono text-sm sm:text-base flex items-center justify-between gap-4">
                         <code class="text-cyber">npm install -g openclaw@latest && openclaw onboard</code>
                         <button
-                            onclick="navigator.clipboard.writeText('npm install -g openclaw@latest && openclaw onboard')"
+                            onclick="try { navigator.clipboard.writeText('npm install -g openclaw@latest && openclaw onboard'); } catch(e) { console.warn('Clipboard not available:', e); }"
                             class="text-gray-500 hover:text-white transition-colors" title="Copy">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -231,12 +244,21 @@
                 <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square&color=333"
                     alt="MIT License" class="h-6">
             </div>
-            <div class="mt-16 flex justify-center space-x-8">
-                <a href="https://www.aliyun.com/activity/ecs/clawdbot?userCode=2tmo4hnt" target="_blank" class="group cyber-border px-8 py-4 rounded-xl bg-gradient-to-r from-claw to-claw-600 hover:from-claw-600 hover:to-claw transition-all duration-300 transform hover:scale-105">
-                    <span class="text-glow text-lg font-bold">☁️ 阿里云</span>
+            <!-- 云平台秒级部署链接 -->
+            <div class="flex flex-wrap justify-center gap-4 mt-4">
+                <a href="https://www.aliyun.com/activity/ecs/clawdbot?userCode=2tmo4hnt" target="_blank"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white text-sm font-medium rounded-lg transition-all shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    阿里云秒级部署OpenClaw
                 </a>
-                <a href="https://curl.qcloud.com/52zSMIJx" target="_blank" class="group cyber-border px-8 py-4 rounded-xl bg-gradient-to-r from-cyber to-cyber-dim hover:from-cyber-dim hover:to-cyber transition-all duration-300 transform hover:scale-105">
-                    <span class="text-glow text-lg font-bold">☁️ 腾讯云</span>
+                <a href="https://cloud.tencent.com/act/cps/redirect?redirect=37947&cps_key=bd5777df28b3d39abc3ea25b864277ab" target="_blank"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white text-sm font-medium rounded-lg transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14h-2v-4H6v-2h4V7h2v4h4v2h-4v4z"/>
+                    </svg>
+                    腾讯云秒级部署OpenClaw
                 </a>
             </div>
         </div>
@@ -567,8 +589,7 @@
             </div>
         </div>
     </footer>
-    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-    <script>LA.init({id:"KnnE2h4Byuy1IB9P",ck:"KnnE2h4Byuy1IB9P"})</script>
+
 </body>
 
 </html>
